@@ -1,0 +1,45 @@
+/* V3 enhancements: depth, ambient lighting, kinetic navigation, scroll progress. */
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(380px circle at var(--pointer-x,85%) var(--pointer-y,35%),rgba(103,194,245,.075),transparent 80%)}
+.hero-glow-left{animation:ambientDrift 11s ease-in-out infinite alternate}
+.hero-glow-right{animation:ambientDriftReverse 14s ease-in-out infinite alternate}
+.planet-rim-a{animation:orbitWobble 18s linear infinite}
+.planet-rim-b{animation:orbitWobble 24s linear infinite reverse}
+.hero-visual{perspective:1500px;transform-style:preserve-3d}
+.device-wrap{--scroll-y:0px;--scroll-rotate:0deg;translate:0 var(--scroll-y);transform:rotateY(var(--scroll-rotate));transition:translate .16s linear,transform .16s linear;transform-style:preserve-3d}
+.hero-visual .floating-3d{backdrop-filter:blur(22px);transform-style:preserve-3d}
+.operator-card,.destination-card,.portal{transform-style:preserve-3d;will-change:transform}
+.operator-card::before,.destination-card::before,.portal::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;z-index:4;background:radial-gradient(440px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.16),transparent 65%);transition:opacity .35s}
+.operator-card:hover::before,.destination-card:hover::before,.portal:hover::before{opacity:1}
+.operator-card .op-symbol,.portal .portal-geometry{transition:transform .45s cubic-bezier(.21,.75,.27,1),filter .4s}
+.operator-card:hover .op-symbol{transform:translateZ(35px) scale(1.12) rotate(-6deg);filter:drop-shadow(0 0 30px var(--accent))}
+.portal:hover .portal-geometry{transform:translateZ(35px) rotate(-12deg) scale(1.08)}
+.destination-art img{transition:transform 1s cubic-bezier(.21,.75,.27,1),filter .8s}
+.destination-card:hover .destination-art img{transform:scale(1.12) rotate(-2deg);filter:saturate(1.18)}
+.destination-card:hover .destination-flag{animation:flagPop .65s cubic-bezier(.16,1.4,.3,1)}
+.button-electric,.button-soft{position:relative;isolation:isolate;overflow:hidden}
+.button-electric::before,.button-soft::before{content:"";position:absolute;inset:-100% auto -100% -45%;width:35%;z-index:-1;background:linear-gradient(90deg,transparent,rgba(255,255,255,.26),transparent);transform:rotate(22deg);transition:left .8s ease}
+.button-electric:hover::before,.button-soft:hover::before{left:150%}
+.eyebrow-rule,.micro-dot{animation:pulseSoft 3s ease-in-out infinite}
+.world-spotlight{isolation:isolate}
+.world-spotlight::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;border:1px solid transparent;background:linear-gradient(125deg,rgba(132,234,255,.19),transparent 52%,rgba(213,255,126,.13)) border-box;mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);mask-composite:exclude}
+.spotlight-map .globe-canvas{filter:drop-shadow(0 0 45px #63dcff38)}
+.world .spotlight-map .spotlight-emoji{display:none}
+.stage-floating{transition:transform .7s cubic-bezier(.2,.8,.25,1),opacity .5s}
+.stage-ring{animation:orbitWobble 26s linear infinite}
+.stage-ring.ring-two{animation-direction:reverse}
+.journey-slide.active h2{animation:slideFocus .7s cubic-bezier(.21,.75,.27,1) both}
+.contact-art>span{animation:asteriskSpin 22s linear infinite}
+.footer-logo img{transition:transform .3s}.footer-logo:hover img{transform:scale(1.04)}
+html[data-theme='light'] .hero::before{background:radial-gradient(410px circle at var(--pointer-x,80%) var(--pointer-y,36%),rgba(42,139,239,.08),transparent 75%)}
+html[data-theme='light'] .operator-card::before,
+html[data-theme='light'] .destination-card::before,
+html[data-theme='light'] .portal::before{background:radial-gradient(430px circle at var(--mx,50%) var(--my,50%),rgba(33,107,219,.095),transparent 68%)}
+@keyframes ambientDrift{0%{transform:translate3d(-14px,12px,0) scale(.95)}100%{transform:translate3d(36px,-25px,0) scale(1.12)}}
+@keyframes ambientDriftReverse{0%{transform:translate3d(15px,-20px,0) scale(1.08)}100%{transform:translate3d(-40px,25px,0) scale(.91)}}
+@keyframes orbitWobble{0%{rotate:0deg}100%{rotate:360deg}}
+@keyframes flagPop{0%{transform:translateY(2px) scale(.82)}60%{transform:translateY(-7px) scale(1.17)}100%{transform:translateY(0) scale(1)}}
+@keyframes pulseSoft{0%,100%{filter:drop-shadow(0 0 0 transparent)}50%{filter:drop-shadow(0 0 12px currentColor)}}
+@keyframes slideFocus{from{opacity:.2;filter:blur(9px);transform:translateY(23px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes asteriskSpin{from{rotate:0deg}to{rotate:360deg}}
+@media(prefers-reduced-motion:reduce){.hero::before{display:none}*,*::before,*::after{animation:none!important;transition-duration:0s!important;scroll-behavior:auto!important}}
+html.still *,html.still *::before,html.still *::after{animation-play-state:paused!important;transition:none!important}

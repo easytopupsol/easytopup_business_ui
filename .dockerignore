@@ -1,0 +1,19 @@
+# Keep the build context small and prevent local secrets being copied into the image.
+node_modules
+.next
+.git
+.gitignore
+npm-debug.log*
+*.log
+*.zip
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+.env
+.env.*
+!.env.example
+README.md
+coverage
+out
+*.tsbuildinfo
+.DS_Store

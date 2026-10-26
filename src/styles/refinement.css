@@ -1,0 +1,423 @@
+/* EasyTopup V3.2 — professional, compact, theme-complete typography and responsive polish.
+   Keep V2/V3 3D visuals; this stylesheet is loaded last so it owns the design scale.
+   Poppins is self-hosted by @fontsource/poppins at build time (no Google CDN dependency). */
+:root {
+  --ui-font: 'Poppins', Arial, Helvetica, sans-serif;
+  --ui-body: 12.5px;
+  --ui-body-line: 1.72;
+  --ui-section: clamp(36px, 4.4vw, 65px);
+  --ui-heading: clamp(44px, 5.4vw, 78px);
+  --ui-radius: 18px;
+  --container: 1180px;
+}
+html { scroll-padding-top: 84px; }
+body, button, input, textarea, select { font-family: var(--ui-font); }
+body { font-size:var(--ui-body); font-weight:400; line-height:var(--ui-body-line); }
+h1,h2,h3,strong,b { text-wrap:balance; }
+h1,h2,h3 { font-weight: 750; }
+a,button { -webkit-tap-highlight-color:transparent; }
+:focus-visible { outline:2px solid var(--v3-accent); outline-offset:3px; }
+.container { max-width:var(--container); width:calc(100% - 68px); }
+.section { padding:94px 0; }
+.eyebrow,.micro,.tiny-key,.mini-label { font-size:9px; letter-spacing:.11em; font-weight:700; }
+.display { font-family:var(--ui-font); font-size:var(--ui-section); font-weight:800; line-height:1.10; letter-spacing:-.052em; margin:15px 0 0; }
+.display em,.contact h2 em { font-style:normal; }
+.section-top { margin-bottom:32px; }
+.side-note { max-width:305px; font-size:12px; line-height:1.72; gap:8px; }
+.side-note p { margin-bottom:0; }
+.rotating-glyph {font-size:30px;}
+
+/* Compact desktop navbar */
+.nav { padding:10px 0; }
+.nav.scrolled { padding:6px 0; }
+.nav-shell {height:55px; gap:17px;}
+.logo {padding:7px 11px; border-radius:11px;}
+.logo img {width:142px;height:30px;object-fit:contain;}
+.nav-center {gap:23px;}
+.nav-center a,.nav-contact {font-size:11px;font-weight:600;letter-spacing:0;}
+.nav-contact {font-size:10px;gap:5px;}
+.nav-actions {gap:9px;}
+.theme-toggle,.login-switch {min-height:37px; padding:8px 12px; font-size:10px; font-weight:600; letter-spacing:.01em;}
+.theme-toggle {gap:6px;}
+.login-panel a {font-size:11px; font-weight:600;}
+
+/* Hero keeps its 3D phone & globe, but no longer overwhelms the page. */
+.hero { min-height:690px; height:min(830px,100svh); }
+.hero-layout { grid-template-columns:54% 46%; min-height:690px; padding-top:105px; padding-bottom:65px; }
+.hero-content { padding-top:0; }
+.micro {margin-bottom:20px;}
+.hero-title {font-size:var(--ui-heading);font-weight:800;line-height:1.10;letter-spacing:-.064em;white-space:normal;margin-bottom:21px;}
+.hero-title-outline {-webkit-text-stroke-width:1.3px;}
+.hero-intro {max-width:425px;font-size:12.5px;line-height:1.78;margin-bottom:22px;}
+.hero-buttons {gap:10px;}
+.button {min-height:44px;gap:13px;padding:8px 10px 8px 16px;font-size:10px;font-weight:700;letter-spacing:.015em;}
+.arrow-round {width:28px;height:28px;font-size:15px;}
+.button-soft span {font-size:15px;}
+.hero-footnote {margin-top:24px;font-size:10px;flex-wrap:wrap;}
+.hero-visual {top:115px;right:-2%;width:55%;height:calc(100% - 150px);min-height:490px;}
+.device-wrap {width:220px;top:24%;left:30%;}
+.phone-screen {height:450px;}
+.phone-title {font-size:21px;}
+.hero-bottom {bottom:21px;font-size:9px;}
+.floating-3d {padding:10px 12px;}
+
+/* Operator and country grids */
+.operator-grid {gap:14px;}
+.operator-card {height:188px; border-radius:18px; padding:18px;}
+.op-symbol {font-size:52px;top:35px;}
+.op-bottom h3 {font-size:20px;font-weight:750;letter-spacing:-.04em;}
+.op-bottom small {font-size:9px;}
+.op-index {font-size:8px;}
+.clarify,.world-disclaimer {font-size:10px;line-height:1.8;}
+.signal-break {height:420px;}
+.signal-big {font-size:clamp(48px,7vw,94px);line-height:1.04;font-weight:800;letter-spacing:-.065em;margin:17px 0;}
+.signal-content p {font-size:12px;}
+
+/* Shorter scroll journey, smaller chapter titles */
+.journey {height:275vh;}
+.journey-pin {min-height:600px;}
+.journey-layout {grid-template-columns:52% 48%;}
+.journey-copy {height:390px;}
+.journey-slide {top:77px;}
+.journey-slide h2 {font-size:clamp(38px,4.45vw,61px);font-weight:800;letter-spacing:-.055em;line-height:1.13;margin:15px 0 16px;}
+.journey-slide p {font-size:12px;line-height:1.75;max-width:430px;}
+.journey-slide>a {font-size:10px;font-weight:700;gap:15px;padding:11px 0;}
+.journey-number {font-size:11px;}
+.journey-number span {font-size:9px;}
+.journey-stage {height:495px;}
+
+.world-heading {gap:35px;margin-bottom:28px;}
+.world-heading p {font-size:12px;max-width:320px;line-height:1.8;}
+.world-spotlight {grid-template-columns:60% 40%;min-height:300px;border-radius:21px;}
+.spotlight-map {min-height:300px;}
+.spotlight-map canvas {width:400px;height:400px;}
+.spotlight-copy {padding:25px 29px;}
+.spotlight-copy strong {font-size:92px;letter-spacing:-.075em;}
+.spotlight-copy strong span {font-size:36px;}
+.spotlight-copy p {font-size:11px;line-height:1.65;margin-top:10px;}
+.spotlight-copy>span:nth-of-type(2) {font-size:9px;letter-spacing:.08em;}
+.filter-bar {gap:12px;}
+.filter {font-size:10px;font-weight:600;padding:9px 15px;}
+.destinations {gap:14px;}
+.destination-card {border-radius:18px;}
+.destination-art {height:188px;}
+.destination-content {padding:14px;gap:8px;}
+.destination-content h3 {font-size:16px;line-height:1.2;font-weight:700;letter-spacing:-.03em;}
+.destination-content p {font-size:10px;line-height:1.45;}
+.destination-content a {width:34px;height:34px;font-size:17px;}
+.destination-flag {width:36px;height:36px;font-size:21px;border-radius:11px;}
+.destination-badge {font-size:8px;padding:6px 9px;}
+
+/* Business-like smaller portal cards, retain the 3D emblems. */
+.portals-grid {gap:17px;}
+.portals-heading p {font-size:12px;margin:13px auto 29px;}
+.portal {min-height:335px;padding:21px;border-radius:21px;}
+.portal-kicker {font-size:9px;font-weight:600;letter-spacing:.08em;}
+.portal-emblem {height:140px;}
+.portal-geometry {width:105px;height:105px;border-radius:25px;}
+.portal-geometry span {font-size:64px;}
+.portal-foot h3 {font-size:28px;font-weight:750;letter-spacing:-.045em;margin-bottom:6px;}
+.portal-foot p {font-size:11px;line-height:1.67;min-height:40px;margin-bottom:12px;}
+.portal-foot>span {padding-top:12px;font-size:9px;font-weight:700;}
+
+/* Compact contact / footer */
+.contact {padding:72px 0;}
+.contact-shell {min-height:315px;grid-template-columns:33% 67%;}
+.contact-art {height:280px;}
+.contact-halo {width:260px;height:260px;}
+.contact-art span {font-size:175px;}
+.contact h2 {font-size:clamp(40px,5.2vw,70px);font-weight:800;letter-spacing:-.064em;line-height:1.08;margin:14px 0;}
+.contact p {font-size:12px;line-height:1.75;max-width:430px;}
+.contact-actions {gap:14px;}
+.contact-phone {font-size:11px;font-weight:700;}
+.footer {padding:46px 0 20px;}
+.footer-logo img {width:148px;}
+.footer-main p,.footer-nav {font-size:11px;line-height:1.7;}
+.footer-address span {font-size:9px;}
+.footer-bottom {font-size:9px;padding-top:18px;letter-spacing:0;}
+.chat-float {font-size:10px;padding:11px 15px;}
+
+/* Light theme: every shared section is actually light; keep deliberate dark-on-light
+   small phone screen and photo overlays for legibility. */
+html[data-theme='light'] {
+  --bg:#f7f9fd; --deep:#edf3fa; --card:#fff; --line:rgba(35,75,130,.14);
+  --white:#162c48; --muted:#526982; --lime:#2468d8; --cyan:#0b84c1;
+  --purple:#6559be;
+}
+html[data-theme='light'] body {background:#f7f9fd;color:#162c48;}
+html[data-theme='light'] .nav {color:#173152;}
+html[data-theme='light'] .nav:not(.scrolled) {background:rgba(248,251,255,.70);border-bottom:1px solid #d9e5f351;backdrop-filter:blur(16px);}
+html[data-theme='light'] .nav.scrolled {background:rgba(250,252,255,.96);border-bottom-color:#cfdef1;}
+html[data-theme='light'] .nav-center a {color:#415876;}
+html[data-theme='light'] .nav-center a:hover {color:#1e66ce;}
+html[data-theme='light'] .nav-contact {color:#2164b9;}
+html[data-theme='light'] .menu-button {background:#eaf2ff;color:#1b4a81;border:1px solid #cbdcf2;}
+html[data-theme='light'] .mobile-nav {background:#fff;border-color:#cbdcf2;color:#173a62;}
+html[data-theme='light'] .mobile-nav-links>a,
+html[data-theme='light'] .mobile-portals a {color:#24456b;}
+html[data-theme='light'] .mobile-nav-links>a:hover,
+html[data-theme='light'] .mobile-portals a:hover {background:#eaf2ff;}
+html[data-theme='light'] .hero-bottom {color:#56718f;}
+html[data-theme='light'] .scroll-discover {color:#3d658b;}
+html[data-theme='light'] .hero-glow-right {opacity:.1;}
+html[data-theme='light'] .hero-title {text-shadow:none;}
+html[data-theme='light'] .shimmer {background-image:linear-gradient(100deg,#1d5dc4,#1092c6 55%,#087f84);}
+html[data-theme='light'] .title-period {-webkit-text-fill-color:#2868d7;}
+html[data-theme='light'] .micro-index {color:#5e7796;}
+html[data-theme='light'] .hero-footnote .foot-separator {color:#7e93ad;}
+html[data-theme='light'] .operator-card {background:radial-gradient(circle at 70% 30%,color-mix(in srgb,var(--accent) 12%,transparent),transparent 65%),linear-gradient(125deg,#fff,#f0f5fc);border-color:#d7e3f1;}
+html[data-theme='light'] .op-bottom h3 {color:#142e51;}
+html[data-theme='light'] .side-note p {color:#536a85;}
+html[data-theme='light'] .signal-break {background:linear-gradient(120deg,#ebf5ff,#e7f9f4);color:#15334f;}
+html[data-theme='light'] .signal-content .eyebrow {color:#2865a6;}
+html[data-theme='light'] .signal-big {color:#163653;}
+html[data-theme='light'] .signal-big span {-webkit-text-stroke:1.5px #2868a4;color:transparent;}
+html[data-theme='light'] .signal-content p {color:#486a7c;}
+html[data-theme='light'] .signal-lines span {background:#3375b9;}
+html[data-theme='light'] .journey {background:#eff5fd;}
+html[data-theme='light'] .journey-pin {background:radial-gradient(ellipse 55% 60% at 74% 49%,#dae9fc,transparent 73%),#f3f8ff;}
+html[data-theme='light'] .journey-count,
+html[data-theme='light'] .journey-number span {color:#547294;}
+html[data-theme='light'] .journey-number {color:#245fc5;}
+html[data-theme='light'] .journey-slide h2 {color:#193553;}
+html[data-theme='light'] .journey-slide h2 em {color:#2779b4;}
+html[data-theme='light'] .journey-slide p {color:#546d89;}
+html[data-theme='light'] .journey-slide a {color:#2266c1;}
+html[data-theme='light'] .journey-stage .stage-floating {background:#ffffffdf;color:#275681;border-color:#c6ddf2;box-shadow:0 12px 30px #15356318;}
+html[data-theme='light'] .stage-ring {border-color:#2f7ac744;}
+html[data-theme='light'] .world {background:radial-gradient(ellipse at 50% 0,#e5efff,transparent 68%),#f8fbff;}
+html[data-theme='light'] .world-heading p {color:#5a6f87;}
+html[data-theme='light'] .world-spotlight {background:linear-gradient(125deg,#e1eefe,#f4f9ff);border:1px solid #d4e1f3;}
+html[data-theme='light'] .spotlight-grid {opacity:.33;}
+html[data-theme='light'] .spotlight-copy {background:linear-gradient(90deg,#eef6ff0a,#edf5ff 38%);color:#153657;}
+html[data-theme='light'] .tiny-key,
+html[data-theme='light'] .spotlight-copy strong span {color:#2366cb;}
+html[data-theme='light'] .spotlight-copy>span:nth-of-type(2) {color:#315879;}
+html[data-theme='light'] .map-label {background:#ffffffde;color:#20517f;border-color:#bdcee6;}
+html[data-theme='light'] .filter-bar>span {color:#526c89;}
+html[data-theme='light'] .filter {background:#fff;color:#426082;border:1px solid #cbdaf0;}
+html[data-theme='light'] .filter.active {background:#2467d4;color:#fff;border-color:#2467d4;}
+html[data-theme='light'] .destination-content {background:#fff;color:#1b385c;}
+html[data-theme='light'] .destination-content h3 {color:#1b385c;}
+html[data-theme='light'] .destination-content p {color:#59708b;}
+html[data-theme='light'] .destination-content a {background:#2368d7;color:#fff;}
+html[data-theme='light'] .world-disclaimer {color:#5b728e;}
+html[data-theme='light'] .portals {background:#edf4fd;}
+html[data-theme='light'] .portal {background:linear-gradient(145deg,#fff,#f0f6ff);color:#173759;border:1px solid #ccdbef;}
+html[data-theme='light'] .portal::before {opacity:.45;}
+html[data-theme='light'] .portal-kicker {color:#406588;}
+html[data-theme='light'] .portal-kicker>span {color:#286bc5;}
+html[data-theme='light'] .portal-emblem {filter:drop-shadow(0 11px 16px #1739681c);}
+html[data-theme='light'] .portal-foot h3 {color:#163454;}
+html[data-theme='light'] .portal-foot p {color:#536b86;}
+html[data-theme='light'] .portal-foot>span {color:#1c62ba;border-top:1px solid #cedeee;}
+html[data-theme='light'] .portal-foot b {color:#1c62ba;}
+html[data-theme='light'] .contact {background:linear-gradient(110deg,#e9f8f4,#e8f2ff);color:#153653;}
+html[data-theme='light'] .contact .eyebrow {color:#236eb3;}
+html[data-theme='light'] .contact h2 {color:#173651;}
+html[data-theme='light'] .contact h2 em {-webkit-text-stroke:1.7px #376b9a;}
+html[data-theme='light'] .contact p {color:#456980;}
+html[data-theme='light'] .contact-art span {color:#1d668e;}
+html[data-theme='light'] .contact-phone {color:#1e5ca5;}
+html[data-theme='light'] .contact .button-electric {background:#2063cb;color:#fff;}
+html[data-theme='light'] .footer {background:#e7f0fb;color:#173454;border-top:1px solid #d7e3ef;}
+html[data-theme='light'] .footer-address span {color:#2366c1;}
+html[data-theme='light'] .footer-nav {color:#395b7d;}
+html[data-theme='light'] .footer-bottom {border-top:1px solid #cbd9ed;color:#5b7493;}
+html[data-theme='light'] .footer-bottom a {color:#2264b8;}
+html[data-theme='light'] .chat-float {background:#13a97c;color:#fff;}
+/* Inner device remains intentionally navy even when the surrounding website is light. */
+html[data-theme='light'] .phone-screen {color:#f8ffff;}
+html[data-theme='light'] .phone-card-large {color:#112838;}
+html[data-theme='light'] .phone-card-large small {color:#27545c;}
+html[data-theme='light'] .phone-line small {color:#91b4ce;}
+html[data-theme='light'] .phone-pay {color:#102b32;}
+
+/* Tablet: avoid huge layouts, keep 3D device beside or below content. */
+@media (max-width:1100px) {
+  .container {width:calc(100% - 54px);}
+  .nav-center {gap:14px;}
+  .hero {min-height:680px;height:auto;}
+  .hero-layout {min-height:680px;grid-template-columns:57% 43%;}
+  .hero-title {font-size:clamp(46px,5.8vw,65px);}
+  .hero-visual {width:57%;right:-4%;min-height:440px;}
+  .device-wrap {width:195px;left:29%;top:25%;}
+  .phone-screen {height:440px;}
+  .destinations,.operator-grid {grid-template-columns:repeat(3,minmax(0,1fr));}
+  .portal-geometry {width:95px;height:95px;}
+  .portal-geometry span {font-size:58px;}
+}
+@media (max-width:980px) {
+  .nav-center,.nav-contact {display:none;}
+  .menu-button {display:grid;place-items:center;width:39px;height:39px;color:var(--v3-ink);background:var(--v3-surface-raised);}
+  .mobile-nav:not([hidden]) {display:block;left:24px;right:24px;padding:14px;max-height:min(72vh,560px);overflow:auto;}
+  .mobile-nav-links>a,.mobile-portals a {display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:600;padding:10px 12px;}
+  .mobile-portals {padding-top:10px;}
+  .hero {min-height:760px;}
+  .hero-layout {display:block;min-height:760px;padding-top:120px;}
+  .hero-content {z-index:9;max-width:560px;}
+  .hero-title {font-size:clamp(52px,7vw,70px);}
+  .hero-intro {margin-inline:0;}
+  .hero-buttons,.hero-footnote {justify-content:flex-start;}
+  .hero-visual {top:170px;right:-9%;width:56%;height:530px;min-height:0;}
+  .device-wrap {width:177px;top:26%;left:25%;}
+  .phone-screen {height:430px;}
+  .world-spotlight {grid-template-columns:56% 44%;}
+  .portals-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+  .portal {min-height:345px;padding:16px;}
+  .portal-foot h3 {font-size:23px;}
+  .portal-foot p {font-size:10px;}
+}
+@media (max-width:760px) {
+  .container {width:calc(100% - 36px);}
+  .section {padding:68px 0;}
+  .hero {min-height:780px;}
+  .hero-layout {min-height:780px;padding-top:102px;}
+  .hero-content {max-width:100%;text-align:center;}
+  .micro {justify-content:center;margin-bottom:14px;}
+  .hero-title {font-size:clamp(45px,8.3vw,60px);line-height:1.08;margin-bottom:15px;}
+  .hero-intro {margin-inline:auto;max-width:420px;font-size:11.5px;}
+  .hero-buttons,.hero-footnote {justify-content:center;}
+  .hero-visual {top:347px;right:0;width:100%;height:410px;}
+  .hero-visual canvas {right:0;top:0;width:80%;}
+  .device-wrap {width:166px;left:41%;top:19%;}
+  .phone-screen {height:420px;}
+  .f-card-one {top:18%;left:13%;}
+  .f-card-two {bottom:15%;right:12%;}
+  .hero-bottom {bottom:14px;}
+  .display {font-size:clamp(34px,6vw,46px);}
+  .section-top {gap:20px;}
+  .operator-grid,.destinations {grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .operator-card {height:169px;padding:14px;}
+  .op-symbol {font-size:45px;}
+  .signal-break {height:310px;}
+  .signal-big {font-size:clamp(40px,6.8vw,60px);}
+  .journey {height:240vh;}
+  .journey-pin {min-height:540px;}
+  .journey-layout {display:flex;flex-direction:column;justify-content:center;}
+  .journey-copy {height:255px;flex:none;}
+  .journey-slide {top:55px;max-width:100%;}
+  .journey-slide h2 {font-size:clamp(35px,5.7vw,47px);margin:10px 0;}
+  .journey-slide p {font-size:11px;line-height:1.7;}
+  .journey-stage {min-height:220px;height:260px;flex:none;}
+  .world-heading {display:block;}
+  .world-heading p {font-size:11.5px;margin-top:18px;max-width:450px;}
+  .world-spotlight {grid-template-columns:1fr;min-height:0;}
+  .spotlight-map {min-height:235px;}
+  .spotlight-map canvas {top:-18px;left:20%;width:320px;height:320px;max-width:70%;}
+  .spotlight-copy {padding:22px;}
+  .spotlight-copy strong {font-size:65px;}
+  .filter-bar {display:block;}
+  .filters {flex-wrap:wrap;gap:7px;}
+  .filter {font-size:10px;padding:9px 12px;}
+  .destination-art {height:170px;}
+  .portals-grid {grid-template-columns:1fr;gap:12px;}
+  .portal {min-height:220px;padding:20px;}
+  .portal-emblem {height:85px;}
+  .portal-geometry {width:69px;height:69px;border-radius:18px;}
+  .portal-geometry span {font-size:40px;}
+  .portal-foot h3 {font-size:23px;}
+  .portal-foot p {min-height:0;margin:0 0 10px;}
+  .contact-shell {grid-template-columns:26% 74%;min-height:230px;}
+  .contact-art {height:200px;}
+  .contact-art span {font-size:104px;}
+  .contact-halo {width:165px;height:165px;}
+  .contact h2 {font-size:clamp(35px,5.7vw,52px);}
+  .footer-main {gap:30px;flex-wrap:wrap;}
+}
+@media (max-width:520px) {
+  .container {width:calc(100% - 32px);}
+  .nav {padding:8px 0;}
+  .nav.scrolled {padding:5px 0;}
+  .nav-shell {height:46px;gap:8px;}
+  .logo {padding:5px 7px;}
+  .logo img {width:117px;height:27px;}
+  .theme-toggle {min-height:35px;width:35px;padding:7px;}
+  .login-switch {font-size:10px;min-height:35px;padding:7px 10px;}
+  .menu-button {width:35px;height:35px;border-radius:9px;}
+  .nav-actions {gap:6px;}
+  .mobile-nav:not([hidden]) {left:12px;right:12px;}
+  .hero {min-height:724px;}
+  .hero-layout {padding-top:100px;min-height:724px;}
+  .micro {font-size:8px;gap:6px;}
+  .micro-index {display:none;}
+  .hero-title {font-size:clamp(38px,9vw,50px);letter-spacing:-.055em;margin-bottom:14px;}
+  .hero-intro {font-size:11px;line-height:1.65;max-width:335px;margin-bottom:17px;}
+  .hero-buttons {gap:8px;}
+  .button {min-height:40px;font-size:9px;padding:6px 8px 6px 12px;gap:6px;}
+  .arrow-round {width:25px;height:25px;font-size:14px;}
+  .hero-footnote {margin-top:16px;font-size:9px;}
+  .hero-visual {top:353px;height:320px;right:-8%;width:116%;}
+  .hero-visual canvas {width:72%;top:-2px;right:9%;}
+  .device-wrap {width:130px;top:13%;left:40%;}
+  .phone-edge {padding:5px;border-radius:27px;}
+  .phone-screen {height:305px;border-radius:24px;padding:10px;}
+  .phone-title {font-size:14px;line-height:1.16;}
+  .f-card-one {top:12%;left:7%;}
+  .f-card-two {bottom:12%;right:9%;}
+  .floating-3d {padding:7px 9px;}
+  .hero-bottom-right {display:none;}
+  .section {padding:58px 0;}
+  .display {font-size:clamp(29px,7.8vw,39px);letter-spacing:-.052em;}
+  .eyebrow {font-size:8px;}
+  .section-top {margin-bottom:20px;}
+  .side-note {font-size:11px;}
+  .operator-card {height:146px;padding:12px;border-radius:14px;}
+  .op-symbol {font-size:37px;top:34px;left:12px;}
+  .op-bottom h3 {font-size:15px;}
+  .op-bottom small {font-size:9px;}
+  .operator-grid,.destinations {gap:9px;}
+  .signal-break {height:266px;}
+  .signal-big {font-size:clamp(36px,9.3vw,48px);line-height:1.1;}
+  .signal-content p {font-size:11px;}
+  .journey {height:220vh;}
+  .journey-pin {min-height:570px;}
+  .journey-copy {height:280px;}
+  .journey-slide {top:47px;}
+  .journey-slide h2 {font-size:clamp(29px,7.9vw,42px);line-height:1.12;}
+  .journey-slide p {font-size:10.5px;max-width:340px;line-height:1.6;}
+  .journey-slide>a {font-size:9px;}
+  .journey-stage {height:225px;min-height:200px;}
+  .stage-floating {font-size:7px;}
+  .spotlight-map {min-height:210px;}
+  .spotlight-copy strong {font-size:60px;}
+  .filter {font-size:9px;padding:8px 11px;}
+  .destination-card {border-radius:14px;}
+  .destination-art {height:134px;}
+  .destination-content {padding:10px;gap:5px;}
+  .destination-content h3 {font-size:13px;margin-bottom:3px;}
+  .destination-content p {font-size:10px;}
+  .destination-content a {width:27px;height:27px;font-size:14px;}
+  .destination-flag {width:29px;height:29px;font-size:17px;}
+  .destination-badge {font-size:7px;padding:5px 7px;}
+  .portal {min-height:214px;padding:16px;border-radius:17px;}
+  .portal-emblem {height:80px;}
+  .portal-foot h3 {font-size:22px;}
+  .portal-foot p {font-size:10px;}
+  .contact {padding:54px 0;}
+  .contact-shell {grid-template-columns:1fr;min-height:0;}
+  .contact-art {display:none;}
+  .contact h2 {font-size:clamp(36px,8.7vw,48px);}
+  .contact p {font-size:11px;}
+  .contact-actions {flex-wrap:wrap;gap:10px;}
+  .footer {padding:35px 0 18px;}
+  .footer-main {display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .footer-main>div:first-child {grid-column:span 2;}
+  .footer-logo img {width:135px;}
+  .footer-main p,.footer-nav {font-size:10px;}
+  .footer-bottom {gap:9px;line-height:1.6;}
+  .chat-float {bottom:14px;right:12px;padding:9px 12px;}
+}
+@media(max-width:360px) {
+  .hero-title {font-size:10vw;}
+  .logo img {width:98px;}
+  .nav-actions {gap:4px;}
+  .theme-toggle,.menu-button {width:32px;min-height:33px;}
+  .login-switch {padding:6px 8px;}
+  .operator-grid,.destinations {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .destination-art {height:122px;}
+  .filter {padding:7px 9px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .operator-card,.destination-card,.portal {will-change:auto;}
+}

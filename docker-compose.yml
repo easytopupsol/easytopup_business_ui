@@ -1,0 +1,31 @@
+services:
+  easytopup-landing:
+    container_name: easytopup-landing-v3
+    image: easytopup-landing:3.5.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://easytopup.shop}
+        NEXT_PUBLIC_CUSTOMER_URL: ${NEXT_PUBLIC_CUSTOMER_URL:-https://easytopup.shop/customer}
+        NEXT_PUBLIC_AGENT_URL: ${NEXT_PUBLIC_AGENT_URL:-https://easytopup.shop/agent}
+        NEXT_PUBLIC_DEALER_URL: ${NEXT_PUBLIC_DEALER_URL:-https://easytopup.shop/dealer}
+        NEXT_PUBLIC_WHATSAPP_NUMBER: ${NEXT_PUBLIC_WHATSAPP_NUMBER:-6597835517}
+    ports:
+      # Bind only to local host so Nginx can reverse-proxy it securely.
+      - "127.0.0.1:${EASYTOPUP_LANDING_BIND_PORT:-3050}:3000"
+    environment:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 45s
+      retries: 3

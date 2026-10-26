@@ -1,0 +1,364 @@
+/* EasyTopup V3.3 - Responsive rebuild.
+   Loaded after legacy/theme/refinement. The hero visual is a real GRID CHILD,
+   not a viewport-offset absolute layer. It can never float into hero copy.
+   Decorative phone remains animated and scales independently of its content. */
+:root {
+  --hero-stage-max: 570px;
+}
+html,body {max-width:100%;}
+body {overflow-x:clip;}
+.container {width:min(var(--container),calc(100% - 64px));max-width:100%;min-width:0;}
+main,main>section {min-width:0;}
+[hidden] {display:none !important;}
+img,svg,video,canvas {max-width:100%;}
+/* Desktop: stable text and artwork columns inside same container. */
+.hero {
+  height:auto;
+  min-height:0;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero-layout {
+  height:auto;
+  min-height:clamp(650px,55vw,780px);
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  align-items:center;
+  gap:clamp(12px,2.5vw,46px);
+  padding-top:clamp(118px,10vw,155px);
+  padding-bottom:clamp(64px,7vw,100px);
+}
+.hero-content {
+  position:relative;
+  z-index:4;
+  min-width:0;
+  max-width:100%;
+  padding:0;
+}
+.hero-title {
+  font-size:clamp(43px,5vw,70px);
+  white-space:normal;
+  line-height:1.13;
+  overflow-wrap:normal;
+  letter-spacing:-.06em;
+  max-width:100%;
+}
+.hero-intro {max-width:430px;}
+.hero-buttons {max-width:100%;}
+.hero-visual {
+  --phone-scale:.86;
+  position:relative;
+  inset:auto;
+  top:auto;
+  right:auto;
+  bottom:auto;
+  left:auto;
+  width:min(100%,var(--hero-stage-max));
+  max-width:100%;
+  height:auto;
+  min-height:0;
+  aspect-ratio:10 / 11;
+  align-self:center;
+  justify-self:center;
+  z-index:2;
+  opacity:1;
+  isolation:isolate;
+  perspective:1000px;
+  pointer-events:none;
+}
+.hero-visual .planet-light {
+  width:100%;height:95%;aspect-ratio:auto;
+  top:0;left:0;
+}
+.hero-visual .globe-canvas {
+  display:block;
+  position:absolute;
+  inset:auto;
+  top:1%;left:0;right:auto;bottom:auto;
+  width:100%;height:auto;
+  max-width:100%;
+  aspect-ratio:1;
+  object-fit:contain;
+}
+.hero-visual .planet-rim {width:90%;height:53%;top:19%;right:4%;}
+.hero-visual .device-wrap {
+  position:absolute;
+  left:44%;top:18% !important;right:auto;bottom:auto;
+  width:220px;
+  max-width:none;
+  height:auto;
+  /* translate/scale are independent of the keyframed 3D transform */
+  translate:-50% var(--scroll-y,0px);
+  transition:none; /* prevent starting at 0% and drifting across artwork on mount */
+  scale:var(--phone-scale);
+  transform-origin:top center;
+  margin:0;
+  will-change:transform;
+}
+.hero-visual .device-wrap .phone-screen {height:450px;}
+/* Keep the entire mock recharge UI visible inside the smaller 450px screen. */
+.hero-visual .phone-brand {margin-top:17px;}
+.hero-visual .phone-overline {margin-top:13px;}
+.hero-visual .phone-title {margin:7px 0 11px;}
+.hero-visual .phone-card-large {min-height:101px;padding:12px;}
+.hero-visual .phone-line {margin-top:7px;padding:7px 8px;}
+.hero-visual .phone-pay {margin-top:8px;padding:10px 12px;}
+.hero-visual .f-card-one {top:12%;left:0;right:auto;bottom:auto;}
+.hero-visual .f-card-two {bottom:14%;right:0;left:auto;top:auto;}
+.hero-visual .floating-3d {max-width:44%;gap:8px;}
+.hero-visual .floating-3d strong {font-size:9px;}
+.hero-visual .floating-3d small {font-size:7px;}
+.hero-visual .pill-flag {font-size:22px;}
+.hero-visual .f-check {margin-left:2px;}
+.hero-visual .visual-orbit-label {top:6%;right:6%;font-size:7px;}
+.hero-bottom {
+  position:absolute;
+  width:min(var(--container),calc(100% - 64px));
+  left:50%;right:auto;bottom:19px;
+  translate:none;
+  transform:translateX(-50%);
+}
+/* Avoid the globe in the international feature getting forced to desktop pixels. */
+.world-spotlight {min-width:0;overflow:hidden;}
+.spotlight-map {min-width:0;overflow:hidden;isolation:isolate;}
+.spotlight-map .globe-canvas {
+  width:min(100%,390px);
+  height:auto;
+  aspect-ratio:1;
+  max-width:none;
+  left:50%;top:50%;
+  translate:-50% -50%;
+}
+.spotlight-copy {min-width:0;}
+.world-heading,.portals-grid,.destinations,.operator-grid {min-width:0;}
+.destination-card,.operator-card,.portal {min-width:0;}
+/* Screen 1180px and below: artworks remain in bounds. */
+@media (max-width:1180px) {
+  .hero-visual {--phone-scale:.76;}
+  .hero-title {font-size:clamp(40px,5vw,62px);}
+  .hero-layout {grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr);gap:14px;}
+  .hero-visual .floating-3d {padding:8px 10px;}
+  .hero-visual .f-card-two {bottom:6%;}
+}
+/* Tablet and narrower: stack copy ABOVE the artwork, never overlay it. */
+@media (max-width:900px) {
+  .container {width:calc(100% - 48px);}
+  .hero-layout {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:clamp(16px,4vw,32px);
+    min-height:0;
+    padding-top:clamp(108px,13vw,144px);
+    padding-bottom:72px;
+  }
+  .hero-content {
+    max-width:680px;
+    margin-inline:auto;
+    text-align:center;
+  }
+  .micro,.hero-buttons,.hero-footnote {justify-content:center;}
+  .hero-title {font-size:clamp(48px,7vw,69px);max-width:100%;}
+  .hero-intro {margin-inline:auto;max-width:520px;}
+  .hero-visual {
+    --phone-scale:.84;
+    margin:0 auto;
+    width:min(100%,520px);
+    max-width:100%;
+    height:auto;
+    min-height:0;
+    aspect-ratio:10 / 10.6;
+    transform:none;
+  }
+  .hero-bottom {width:calc(100% - 48px);bottom:13px;}
+  .hero-visual .device-wrap {left:42%;}
+  .hero-visual .f-card-one {top:13%;}
+  .hero-visual .f-card-two {bottom:11%;}
+  .world-spotlight {grid-template-columns:1fr;}
+  .spotlight-map {min-height:290px;}
+  .spotlight-map .globe-canvas {width:min(75%,350px);}
+}
+@media (max-width:600px) {
+  .container {width:calc(100% - 32px);}
+  .hero-layout {
+    padding-top:clamp(92px,23vw,114px);
+    padding-bottom:62px;
+    gap:14px;
+  }
+  .hero-title {font-size:clamp(37px,8.7vw,52px);line-height:1.12;letter-spacing:-.056em;}
+  .hero-intro {font-size:11.5px;line-height:1.7;max-width:420px;}
+  .hero-buttons {gap:8px;}
+  .hero-footnote {margin-top:12px;gap:8px;}
+  .hero-visual {
+    --phone-scale:.62;
+    width:min(100%,420px);
+    aspect-ratio:10 / 10.4;
+    margin-inline:auto;
+  }
+  .hero-visual .device-wrap {top:11% !important;left:62%;}
+  .hero-visual .floating-3d {
+    padding:7px 9px;
+    gap:5px;
+    max-width:39%;
+    border-radius:12px;
+    box-shadow:0 12px 30px #0004;
+  }
+  .hero-visual .floating-3d strong {font-size:8px;line-height:1.3;}
+  .hero-visual .floating-3d small {font-size:6px;margin-top:2px;line-height:1.3;}
+  .hero-visual .pill-flag {font-size:19px;}
+  .hero-visual .f-check {font-size:13px;}
+  .hero-visual .f-card-one {top:8%;left:0;}
+  .hero-visual .f-card-two {bottom:7%;right:0;}
+  .hero-visual .visual-orbit-label {display:none;}
+  .hero-bottom {width:calc(100% - 32px);}
+  .hero-bottom-right {display:none;}
+  .spotlight-map {min-height:225px;}
+  .spotlight-map .globe-canvas {width:min(82%,275px);}
+  .world-spotlight {grid-template-columns:minmax(0,1fr);}
+  .spotlight-copy {padding:20px;}
+  .spotlight-copy strong {font-size:58px;}
+  .world-heading,.section-top {min-width:0;}
+  .world-heading .display,.display {overflow-wrap:break-word;}
+  .portal-foot h3 {font-size:22px;}
+}
+@media (max-width:400px) {
+  .hero-layout {padding-top:97px;gap:12px;}
+  .hero-title {font-size:clamp(31px,9vw,39px);}
+  .hero-intro {font-size:11px;}
+  .hero-buttons {flex-direction:column;align-items:stretch;}
+  .hero-buttons .button {width:100%;max-width:310px;margin-inline:auto;min-height:41px;justify-content:space-between;}
+  .hero-footnote {justify-content:center;font-size:8px;}
+  .hero-visual {--phone-scale:.54;aspect-ratio:10/10.8;}
+  .hero-visual .device-wrap {top:7% !important;left:62%;}
+  .hero-visual .f-card-one {top:2%;}
+  .hero-visual .f-card-two {bottom:1%;}
+  .hero-visual .floating-3d {max-width:41%;}
+  .hero-visual .floating-3d .f-check {display:none;}
+  .hero-visual .floating-3d small {font-size:5.8px;}
+  .hero-visual .planet-rim {opacity:.5;}
+  .hero-bottom {bottom:9px;}
+  .scroll-discover {font-size:8px;}
+  .spotlight-map {min-height:200px;}
+  .spotlight-map .globe-canvas {width:min(85%,235px);}
+}
+@media (max-width:340px) {
+  .hero-visual {--phone-scale:.49;}
+  .hero-visual .f-card-two {display:none;}
+  .hero-title {letter-spacing:-.065em;}
+}
+/* Stop animated motion for accessibility without hiding the 3D artwork. */
+@media (prefers-reduced-motion:reduce) {
+  .hero-visual .device-wrap {will-change:auto;}
+}
+
+
+/* V3.4 - International spotlight / "Passport to Everywhere" globe containment.
+   Previous rules positioned a 400px canvas inside a 235-300px clipped panel.
+   The dedicated stage reserves an actual square in normal layout flow.
+   Canvas never relies on 400px fixed dimensions or negative offsets. */
+.world-spotlight {
+  grid-template-columns: minmax(0, 59fr) minmax(0, 41fr);
+  align-items: stretch;
+  min-height: 0;
+  height: auto;
+}
+.world-spotlight > * { min-width: 0; }
+.world-spotlight .spotlight-map {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 360px;
+  height: auto;
+  padding: 24px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.spotlight-globe-stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: min(100%, 332px);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  min-width: 0;
+  flex: none;
+  overflow: visible;
+  pointer-events: none;
+}
+/* Override legacy forced 400x400, top:-23px, left:12% and float transform.
+   Earth animation continues inside the canvas renderer. */
+.world-spotlight .spotlight-map .spotlight-globe-stage > .globe-canvas {
+  display: block;
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  inset: auto;
+  translate: none;
+  transform: none;
+  animation: none;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  margin: 0;
+  filter: drop-shadow(0 0 24px rgba(90, 210, 255, .26));
+}
+/* Decorative arcs remain inside the map, below country labels. */
+.spotlight-map .map-arc { z-index: 0; pointer-events: none; }
+.spotlight-map .map-label { z-index: 3; max-width: 45%; white-space: nowrap; }
+.spotlight-map .spotlight-grid { z-index: 0; pointer-events: none; }
+.world-spotlight .spotlight-copy {
+  position: relative;
+  z-index: 2;
+  align-self: stretch;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+@media (min-width: 901px) and (max-width: 1190px) {
+  .world-spotlight .spotlight-map { padding: 17px; min-height: 325px; }
+  .spotlight-globe-stage { width: min(100%, 290px); }
+}
+@media (max-width: 900px) {
+  .world-spotlight { grid-template-columns: minmax(0, 1fr); }
+  .world-spotlight .spotlight-map { min-height: 365px; padding: 20px; }
+  .spotlight-globe-stage { width: min(100%, 320px); }
+  .world-spotlight .spotlight-copy { padding: 22px 26px 27px; }
+}
+@media (max-width: 600px) {
+  .world-spotlight .spotlight-map { min-height: 315px; padding: 18px 16px; }
+  .spotlight-globe-stage { width: min(100%, 275px); }
+  .spotlight-map .map-label { font-size: 8px; padding: 7px 10px; }
+  .spotlight-map .map-label-a { top: 13%; left: 4%; }
+  .spotlight-map .map-label-b { top: 51%; right: 4%; }
+  .spotlight-map .map-label-c { bottom: 11%; left: 7%; }
+}
+@media (max-width: 400px) {
+  .world-spotlight .spotlight-map { min-height: 285px; padding: 14px; }
+  .spotlight-globe-stage { width: min(100%, 248px); }
+  .spotlight-map .map-label { font-size: 7px; padding: 6px 8px; }
+}
+@media (max-width: 340px) {
+  .world-spotlight .spotlight-map { min-height: 268px; padding: 12px; }
+  .spotlight-globe-stage { width: min(100%, 225px); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .spotlight-globe-stage, .spotlight-globe-stage > .globe-canvas { animation:none; }
+}
+
+/* Keep the orbit decorations entirely inside the panel, too. */
+.world-spotlight .spotlight-map .map-arc {
+  width: min(68%, 340px);
+  height: 51%;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  transform: rotate(-30deg);
+}
+.world-spotlight .spotlight-map .map-arc-two {
+  transform: rotate(44deg);
+}
