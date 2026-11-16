@@ -118,4 +118,3 @@ export const countries = [
   }
 ] as const;
 
-export const portals = [{ title: 'Customer', href: 'https://easytopup.shop/customer' }, { title: 'Agent', href: 'https://easytopup.shop/agent' }, { title: 'Dealer', href: 'https://easytopup.shop/dealer' }] as const;

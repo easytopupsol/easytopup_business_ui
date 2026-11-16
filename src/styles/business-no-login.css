@@ -1,0 +1,11 @@
+/* Portal cards describe customer groups; they are not navigation controls. */
+.portal-static { cursor: default; }
+.portal-static:hover {
+  box-shadow: none;
+  border-color: color-mix(in srgb, var(--portal) 33%, transparent);
+}
+.portal-static:hover::before { opacity: 0; }
+.portal-static:hover .portal-geometry { transform: rotateX(23deg) rotateY(-23deg) rotateZ(-13deg); }
+.portal-static .portal-foot p { margin-bottom: 0; }
+/* No login/portal-links controls exist in desktop or mobile navigation. */
+.nav-actions { flex-shrink: 0; }

@@ -4,7 +4,7 @@ import {useEffect,useRef,useState} from 'react';
 const stages = [
  { number:'01', label:'DISCOVER', first:'YOUR NETWORK.', second:'YOUR WAY.', text:'Discover Singapore operators through a beautifully simple experience. Every great connection starts with a choice.', href:'#operators', action:'EXPLORE OPERATORS', tags:['SINGTEL / STARHUB / M1','YOUR NETWORKS, YOUR CHOICE'] },
  { number:'02', label:'EXPLORE', first:'THE WORLD', second:'IS CLOSER.', text:'From India to Australia and beyond. Discover featured destinations and enquire about recharge availability.', href:'#world', action:'EXPLORE COUNTRIES', tags:['INDIA / MALAYSIA / JAPAN','THE WORLD IS WAITING'] },
- { number:'03', label:'CONNECT', first:'ONE TAP.', second:'NEW POSSIBILITIES.', text:'Continue through your dedicated Customer, Agent or Dealer portal. Built around the way you connect.', href:'#portals', action:'CHOOSE YOUR PORTAL', tags:['CUSTOMER / AGENT / DEALER','YOUR SPACE TO CONNECT'] },
+ { number:'03', label:'CONNECT', first:'ONE TAP.', second:'NEW POSSIBILITIES.', text:'Purpose-built experiences for agents, dealers and customers. One network, designed for the way you connect.', href:'#portals', action:'SEE OUR SOLUTIONS', tags:['CUSTOMER / AGENT / DEALER','YOUR SPACE TO CONNECT'] },
 ];
 export default function Journey(){
  const section=useRef<HTMLElement>(null);

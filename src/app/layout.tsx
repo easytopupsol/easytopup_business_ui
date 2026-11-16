@@ -11,6 +11,7 @@ import '@/styles/animations.css';
 import '@/styles/refinement.css';
 import '@/styles/responsive.css';
 import '@/styles/country-flags.css';
+import '@/styles/business-no-login.css';
 
 export const metadata: Metadata = {
   title: 'EasyTopup — Beyond borders. Beyond ordinary.',

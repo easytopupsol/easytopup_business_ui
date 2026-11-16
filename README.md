@@ -1,3 +1,9 @@
+# 2026-11-16 update — Business Landing Login/Portal Link Removal
+
+**This update supersedes old historical notes about clickable portal links.** The marketing site now shows Agent / Dealer / Customer as **non-clickable informational cards**, removes desktop Login and mobile login links, and keeps contact links and all existing marketing pages. See `UPDATE_NO_PORTAL_LINKS.md` for full changes and deployment checks. Direct portal URLs outside this marketing site are not affected.
+
+---
+
 # EasyTopup V3.5 — Compact Country Flag Grid
 
 This release retains the V3.4 full-globe responsive fix, Docker/Next.js project and dark/light theme.
